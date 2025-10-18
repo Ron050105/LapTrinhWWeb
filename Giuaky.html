@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Cá Nhân - Rôn Su</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ====== 1. Banner & Navbar ====== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    header.banner {
+      position: relative;
+      text-align: center;
+    }
+    header.banner img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+    }
+    .navbar li a:hover {
+      background-color: #555;
+    }
+
+    /* ====== 2. Layout ====== */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* ====== 3. Card chung ====== */
+    .card {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+      animation: fadeIn 2s ease;
+    }
+
+    /* Animation CSS3 */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* ====== 4. Ảnh cá nhân ====== */
+    .photo-grid {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .photo-grid img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .photo-grid img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    /* ====== 5. Footer ====== */
+    footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive (bonus) */
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Banner & Navbar ===== -->
+  <header class="banner">
+    <!-- Banner ảnh -->
+    <img src="banner.jpg" alt="Banner cá nhân">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="#info">Thông tin</a></li>
+        <li><a href="#career">Nghề nghiệp</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Nội dung chính ===== -->
+  <main>
+    <!-- Thông tin cá nhân -->
+    <section id="info" class="card">
+      <h2>Thông tin cá nhân</h2>
+      <img src="avatar1.jpg" alt="Ảnh cá nhân" style="width:120px; border-radius:50%;">
+      <ul>
+        <li><strong>Họ tên:</strong> Rôn Su</li>
+        <li><strong>Ngày sinh:</strong> 05/01/2005</li>
+        <li><strong>Giới tính:</strong> Nam</li>
+        <li><strong>Địa chỉ:</strong> Phan Thiết, Lâm Đồng</li>
+      </ul>
+    </section>
+
+    <!-- Nghề nghiệp -->
+    <section id="career" class="card">
+      <h2>Mục tiêu nghề nghiệp</h2>
+      <p>Trở thành lập trình viên web full-stack, có khả năng thiết kế, phát triển và triển khai các dự án web thực tế. 
+      Luôn học hỏi công nghệ mới để phát triển bản thân và đóng góp cho doanh nghiệp.</p>
+    </section>
+
+    <!-- Sở thích -->
+    <section id="hobby" class="card">
+      <h2>Sở thích</h2>
+      <ul>
+        <li>Nghe nhạc</li>
+        <li>Chơi game</li>
+        <li>Lập trình</li>
+      </ul>
+    </section>
+
+    <!-- Ngôn ngữ & Kỹ năng -->
+    <section id="skills" class="card">
+      <h2>Ngôn ngữ & Kỹ năng</h2>
+      <p><strong>Ngôn ngữ:</strong> HTML, CSS, JavaScript</p>
+      <p><strong>Kỹ năng:</strong> Thiết kế giao diện, Responsive, Debug, GitHub</p>
+    </section>
+
+    <!-- Chứng chỉ - Giải thưởng -->
+    <section id="awards" class="card">
+      <h2>Chứng chỉ - Giải thưởng</h2>
+      <ul>
+        <li>Không có</li>
+      </ul>
+    </section>
+
+    <!-- Dự án -->
+    <section id="projects" class="card">
+      <h2>Dự án</h2>
+      <p><strong>Tên dự án:</strong> Ứng dụng học từ vựng tiếng Anh (TFLAT Clone)</p>
+      <p><strong>Mô tả:</strong> Ứng dụng Android giúp người dùng học và ôn tập từ vựng tiếng Anh bằng Java, 
+      có lưu trữ dữ liệu và thống kê tiến độ học tập.</p>
+    </section>
+
+    <!-- Ảnh cá nhân -->
+    <section id="gallery" class="card">
+      <h2>Ảnh cá nhân</h2>
+      <div class="photo-grid">
+        <img src="anh.jpg" alt="Ảnh 1">
+        <img src="avatar2.jpg" alt="Ảnh 2">
+        <img src="avatar3.jpg" alt="Ảnh 3">
+        <img src="avatar4.jpg" alt="Ảnh 4">
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Liên hệ ===== -->
+  <footer id="contact">
+    <h2>Liên hệ</h2>
+    <ul style="list-style:none; padding:0;">
+      <li>GitHub: <a href="https://github.com/Ron050105/LapTrinhWWeb" target="_blank">github.com/ron123</a></li>
+      <li>Facebook: <a href="https://www.facebook.com/suron05?mibextid=wwXIfr&rdid=JkwJ6HotkO5nNgN0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1LEDUtgBmD%2F%3Fmibextid%3DwwXIfr" target="_blank">facebook.com/ron.su</a></li>
+      <li>Instagram: <a href="https://instagram.com/ron.su" target="_blank">instagram.com/ron.su</a></li>
+    </ul>
+    <p>&copy; 2025 - Thiết kế bởi Rôn Su</p>
+  </footer>
+
+</body>
+</html>
