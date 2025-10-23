@@ -4,185 +4,268 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Cá Nhân - Su Rôn</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    /* ====== 1. Banner & Navbar ====== */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
+    /* ====== CÀI ĐẶT CHUNG ====== */
+    :root {
+      --main-color: #00bfa6;
+      --bg-light: #f5f5f5;
+      --text-dark: #333;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ====== BANNER & NAVBAR ====== */
     header.banner {
       position: relative;
       text-align: center;
+      overflow: hidden;
     }
     header.banner img {
       width: 100%;
-      height: 250px;
+      height: 300px;
       object-fit: cover;
+      filter: brightness(70%);
+      animation: zoomIn 8s infinite alternate ease-in-out;
+    }
+    header.banner h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 40px;
+      letter-spacing: 2px;
+      animation: fadeIn 3s ease;
+    }
+    @keyframes zoomIn {
+      from {transform: scale(1);}
+      to {transform: scale(1.1);}
+    }
+
+    .navbar {
+      background-color: #222;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .navbar ul {
       display: flex;
       justify-content: center;
-      background-color: #333;
       list-style: none;
       margin: 0;
       padding: 0;
     }
     .navbar li a {
       color: white;
-      padding: 15px 20px;
       text-decoration: none;
+      padding: 15px 25px;
       display: block;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
     }
     .navbar li a:hover {
-      background-color: #555;
+      background-color: var(--main-color);
+      color: white;
     }
 
-    /* ====== 2. Layout ====== */
+    /* ====== BỐ CỤC CHÍNH ====== */
     main {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      padding: 20px;
+      padding: 30px;
     }
-
-    /* ====== 3. Card chung ====== */
-    .card {
+    section.card {
       background-color: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card:hover {
-      transform: scale(1.05);
+    section.card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
-
     h2 {
-      color: #333;
-      border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-      animation: fadeIn 2s ease;
+      color: var(--main-color);
+      border-left: 5px solid var(--main-color);
+      padding-left: 10px;
+      margin-top: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* Animation CSS3 */
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    /* ====== ẢNH CÁ NHÂN ====== */
+    #info img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      display: block;
+      margin: 10px auto;
+      border: 4px solid var(--main-color);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
-    /* ====== 4. Ảnh cá nhân ====== */
+    /* ====== LƯỚI ẢNH ====== */
     .photo-grid {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .photo-grid img {
-      width: 100px;
-      height: 100px;
-      border-radius: 10px;
+      width: 110px;
+      height: 110px;
+      border-radius: 12px;
       object-fit: cover;
-      transition: transform 0.3s;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
     .photo-grid img:hover {
-      transform: rotate(5deg) scale(1.1);
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    /* ====== 5. Footer ====== */
+    /* ====== KỸ NĂNG ====== */
+    .skill-bar {
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .skill-level {
+      height: 10px;
+      background: var(--main-color);
+      width: 0;
+      animation: loadSkill 2s forwards;
+    }
+    @keyframes loadSkill {
+      from {width: 0;}
+      to {width: var(--level);}
+    }
+
+    /* ====== FOOTER ====== */
     footer {
       text-align: center;
-      background-color: #333;
+      background-color: #222;
       color: white;
-      padding: 20px;
+      padding: 30px;
+      margin-top: 30px;
     }
     footer a {
-      color: #00ffcc;
+      color: var(--main-color);
       text-decoration: none;
     }
     footer a:hover {
       text-decoration: underline;
     }
 
-    /* Responsive (bonus) */
+    /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       main {
         grid-template-columns: 1fr;
       }
     }
+
+    /* Hiệu ứng chữ */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ===== Banner & Navbar ===== -->
+  <!-- ===== BANNER ===== -->
   <header class="banner">
-    <!-- Banner ảnh -->
     <img src="./images/banner.jpg" alt="Banner cá nhân">
-
-    <!-- Navbar -->
-    <nav class="navbar">
-      <ul>
-        <li><a href="#info">Thông tin</a></li>
-        <li><a href="#career">Nghề nghiệp</a></li>
-        <li><a href="#skills">Kỹ năng</a></li>
-        <li><a href="#projects">Dự án</a></li>
-        <li><a href="#contact">Liên hệ</a></li>
-      </ul>
-    </nav>
+    <h1>CV CÁ NHÂN - SU RÔN</h1>
   </header>
 
-  <!-- ===== Nội dung chính ===== -->
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#info">Thông tin</a></li>
+      <li><a href="#career">Nghề nghiệp</a></li>
+      <li><a href="#skills">Kỹ năng</a></li>
+      <li><a href="#awards">Chứng chỉ</a></li>
+      <li><a href="#projects">Dự án</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== NỘI DUNG CHÍNH ===== -->
   <main>
     <!-- Thông tin cá nhân -->
     <section id="info" class="card">
       <h2>Thông tin cá nhân</h2>
-      <img src="./images/avatar1.jpg" alt="Ảnh cá nhân" style="width:120px; border-radius:50%;">
+      <img src="./images/avatar1.jpg" alt="Su Rôn">
       <ul>
-        <li><strong>Họ tên:</strong> Tôn Thanh InRa SuRôn </li>
+        <li><strong>Họ tên:</strong> Tôn Thanh InRa SuRôn</li>
         <li><strong>Ngày sinh:</strong> 05/01/2005</li>
         <li><strong>Giới tính:</strong> Nam</li>
         <li><strong>Địa chỉ:</strong> Phan Thiết, Lâm Đồng</li>
+        <li><strong>Email:</strong> ronton.050100@gmail.com</li>
       </ul>
     </section>
 
     <!-- Nghề nghiệp -->
     <section id="career" class="card">
       <h2>Mục tiêu nghề nghiệp</h2>
-      <p>Trở thành lập trình viên web full-stack, có khả năng thiết kế, phát triển và triển khai các dự án web thực tế. 
-      Luôn học hỏi công nghệ mới để phát triển bản thân và đóng góp cho doanh nghiệp.</p>
+      <p>Mục tiêu của tôi là trở thành <b>Lập trình viên Full-Stack</b> chuyên nghiệp, có thể phát triển các dự án web chất lượng cao. 
+      Tôi luôn mong muốn được làm việc trong môi trường sáng tạo, năng động và có cơ hội học hỏi những công nghệ mới như <b>ReactJS, Node.js, và AI tích hợp Web</b>.</p>
     </section>
 
-    <!-- Sở thích -->
-    <section id="hobby" class="card">
-      <h2>Sở thích</h2>
-      <ul>
-        <li>Nghe nhạc</li>
-        <li>Chơi game</li>
-        <li>Lập trình</li>
-      </ul>
-    </section>
-
-    <!-- Ngôn ngữ & Kỹ năng -->
+    <!-- Kỹ năng -->
     <section id="skills" class="card">
-      <h2>Ngôn ngữ & Kỹ năng</h2>
-      <p><strong>Ngôn ngữ:</strong> HTML, CSS, JavaScript</p>
-      <p><strong>Kỹ năng:</strong> Thiết kế giao diện, Responsive, Debug, GitHub</p>
+      <h2>Kỹ năng chuyên môn</h2>
+      <p><b>HTML & CSS</b></p>
+      <div class="skill-bar"><div class="skill-level" style="--level: 95%;"></div></div>
+
+      <p><b>JavaScript</b></p>
+      <div class="skill-bar"><div class="skill-level" style="--level: 85%;"></div></div>
+
+      <p><b>ReactJS</b></p>
+      <div class="skill-bar"><div class="skill-level" style="--level: 70%;"></div></div>
+
+      <p><b>Node.js & Express</b></p>
+      <div class="skill-bar"><div class="skill-level" style="--level: 65%;"></div></div>
+
+      <p><b>Git & GitHub</b></p>
+      <div class="skill-bar"><div class="skill-level" style="--level: 80%;"></div></div>
     </section>
 
-    <!-- Chứng chỉ - Giải thưởng -->
+    <!-- Chứng chỉ -->
     <section id="awards" class="card">
-      <h2>Chứng chỉ - Giải thưởng</h2>
+      <h2>Chứng chỉ & Giải thưởng</h2>
       <ul>
-        <li>Không có</li>
+        <li>🎓 Chứng chỉ Lập trình Web Cơ bản - FPT Polytechnic (2024)</li>
+        <li>🏆 Giải Khuyến khích cuộc thi "Thiết kế Website sáng tạo" (2024)</li>
+        <li>📜 Chứng nhận hoàn thành khóa “HTML, CSS, JS for Beginners” trên Coursera</li>
       </ul>
     </section>
 
     <!-- Dự án -->
     <section id="projects" class="card">
-      <h2>Dự án</h2>
-      <p><strong>Tên dự án:</strong> Ứng dụng học từ vựng tiếng Anh (TFLAT Clone)</p>
-      <p><strong>Mô tả:</strong> Ứng dụng Android giúp người dùng học và ôn tập từ vựng tiếng Anh bằng Java, 
-      có lưu trữ dữ liệu và thống kê tiến độ học tập.</p>
+      <h2>Dự án cá nhân</h2>
+      <p><strong>1. Ứng dụng học từ vựng tiếng Anh (TFLAT Clone)</strong><br>
+      <em>Ngôn ngữ:</em> Java (Android) • <em>Mô tả:</em> Ứng dụng giúp học từ vựng, có tính năng kiểm tra, lưu lịch sử, và thống kê tiến độ học tập.</p>
+      <hr>
+      <p><strong>2. Website cá nhân giới thiệu bản thân</strong><br>
+      <em>Ngôn ngữ:</em> HTML, CSS, JS • <em>Mô tả:</em> Trang web giới thiệu kỹ năng, dự án và thông tin liên hệ. Dùng animation CSS3 & Grid Layout.</p>
+      <hr>
+      <p><strong>3. Website bán linh kiện điện tử</strong><br>
+      <em>Ngôn ngữ:</em> HTML, CSS, JS, PHP • <em>Mô tả:</em> Giao diện thân thiện, có giỏ hàng, tìm kiếm, và quản lý sản phẩm bằng MySQL.</p>
     </section>
 
     <!-- Ảnh cá nhân -->
@@ -197,17 +280,16 @@
     </section>
   </main>
 
-  <!-- ===== Liên hệ ===== -->
+  <!-- ===== LIÊN HỆ ===== -->
   <footer id="contact">
     <h2>Liên hệ</h2>
-    <ul style="list-style:none; padding:0;">
-      <li>GitHub: <a href="https://github.com/Ron050105/LapTrinhWWeb" target="_blank">github.com/ron123</a></li>
-      <li>Facebook: <a href="https://www.facebook.com/suron05?mibextid=wwXIfr&rdid=JkwJ6HotkO5nNgN0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1LEDUtgBmD%2F%3Fmibextid%3DwwXIfr" target="_blank">facebook.com/ron.su</a></li>
-      <li>Instagram: <a href="https://instagram.com/ron.su" target="_blank">instagram.com/ron.su</a></li>
+    <ul style="list-style:none; padding:0; line-height:1.8;">
+      <li>📧 Email: <a href="mailto:ronton.050100@gmail.com">ronton.050100@gmail.com</a></li>
+      <li>🐱 GitHub: <a href="https://github.com/Ron050105/LapTrinhWWeb" target="_blank">github.com/Ron050105</a></li>
+      <li>📘 Facebook: <a href="https://www.facebook.com/suron05" target="_blank">facebook.com/suron05</a></li>
+      <li>📸 Instagram: <a href="https://instagram.com/ron.su" target="_blank">@ron.su</a></li>
     </ul>
-    <p>&copy; 2025 - Thiết kế bởi Rôn Su</p>
+    <p>&copy; 2025 - Thiết kế bởi <b>Su Rôn</b></p>
   </footer>
-
 </body>
 </html>
-
